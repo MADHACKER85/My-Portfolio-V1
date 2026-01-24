@@ -391,10 +391,12 @@ nav {
     animation: float 3s ease-in-out infinite;
 }
 
+
 .python-card {
     top: 20px;
     left: -20px;
     border-left: 3px solid #FFD43B;
+    animation-duration: 3s;
 }
 
 .sql-card {
@@ -402,6 +404,7 @@ nav {
     right: -20px;
     border-left: 3px solid #00BCF2;
     animation-delay: 1.5s;
+    animation-duration: 4s;
 }
 
 .powerbi-card {
@@ -409,8 +412,35 @@ nav {
     right: -30px;
     border-left: 3px solid #F2C811;
     animation-delay: 0.8s;
+    animation-duration: 3.5s;
 }
 
+.mysql-card {
+    bottom: 20px;
+    left: -10px;
+    border-left: 3px solid #00758F;
+    animation-delay: 2.5s;
+    animation-duration: 4.5s;
+}
+
+.git-card {
+    top: 10px;
+    right: 20px;
+    border-left: 3px solid #F05032;
+    /* Git Orange */
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+}
+
+.excel-card {
+    top: 50%;
+    left: -35px;
+    /* Perimeter: Left side */
+    border-left: 3px solid #217346;
+    /* Excel Green */
+    animation-delay: 3s;
+    animation-duration: 4s;
+}
 
 
 @keyframes float {
