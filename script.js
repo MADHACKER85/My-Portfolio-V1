@@ -201,8 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     hasCounted = true;
                 }
 
-                // Add fade-in-up class if we had one, but strict CSS animations are handled mostly by default 
-                // We could add class 'visible' here for trigger
+                // Timeline Items, Certifications & Contact Form Animation
+                if (entry.target.classList.contains('timeline-item') ||
+                    entry.target.classList.contains('cert-card') ||
+                    entry.target.classList.contains('contact-form') ||
+                    entry.target.classList.contains('form-group')) {
+                    entry.target.classList.add('visible');
+                }
+
+                // Generic fade-in-up fallback
                 entry.target.style.opacity = 1;
                 entry.target.style.transform = 'translateY(0)';
             }
@@ -210,6 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     observer.observe(statsSection);
+    document.querySelectorAll('.timeline-item, .cert-card, .contact-form, .contact-form .form-group, .contact-form button').forEach(item => {
+        observer.observe(item);
+    });
 
 
     // --- Chart.js Initialization ---
@@ -276,6 +286,24 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.style.background = 'var(--bg-card)';
             nav.style.padding = '1.5rem 5%';
         }
+    });
+
+    // --- Back to Top Button ---
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('active');
+        } else {
+            backToTopBtn.classList.remove('active');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
 });
