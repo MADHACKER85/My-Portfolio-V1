@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasan | Data Analyst & Visual Storyteller</title>
+    <meta name="description"
+        content="Portfolio of a Data Analyst specializing in Python, SQL, and interactive dashboards.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <nav class="glass-nav">
+        <div class="logo">KEERTHIVASAN<span class="accent">.DEV</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="status-widget">
+                <span class="status-dot pulse"></span>
+                <span class="status-text">Open to Opportunities</span>
+            </div>
+            <h1>Data Analyst, Frontend Dev & <br><span class="gradient-text">Visual Storyteller</span></h1>
+            <p class="hero-subtitle">Bridging the gap between raw data and compelling user experiences.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+            </div>
+
+            <div class="stats-container glass-card">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="6">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1">0</span>
+                    <span class="stat-label">Years Exp</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>%
+                    <span class="stat-label">Commitment</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container split-layout">
+            <div class="about-image-wrapper">
+                <div class="image-frame">
+                    <!-- Placeholder for profile image -->
+                    <img src="./assets/me.jpg" alt="Keerthivasan Profile" class="profile-img">
+                </div>
+                <div class="floating-card python-card">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Data Science</span>
+                </div>
+                <div class="floating-card sql-card">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Frontend Dev</span>
+                </div>
+                <div class="floating-card powerbi-card">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Power BI</span>
+                </div>
+
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <p>Hi, I'm <strong>Keerthivasan Krishnamoorthy</strong> from Namakkal, Tamil Nadu.</p>
+                <p>I am an inquisitive Computer Science Engineer bridging the gap between raw data and compelling user
+                    experiences. I blend the analytical power of <strong>Data Science</strong> with the creativity of
+                    <strong>Frontend Development</strong> to build impactful, story-driven solutions.
+                </p>
+                <p>As a Data Analyst, I specialize in <strong>Data Cleaning, SQL Querying, and Dashboard
+                        Creation</strong>. I leverage tools like Azure and PowerBI to uncover hidden trends and turn
+                    complex metrics into clear, actionable business strategies.</p>
+                <p>My focus? Efficiency, predictive insights, and delivering code that drives successful project
+                    outcomes through effective collaboration.</p>
+                <a href="#" class="btn btn-outline">Download CV <i class="fa-solid fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding dark-bg">
+        <div class="container">
+            <h2 class="section-title center">Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card">
+                    <h3><i class="fa-solid fa-code"></i> Proficiency</h3>
+                    <div class="chart-container">
+                        <canvas id="languagesChart"></canvas>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Stack</h3>
+                    <div class="tags-container">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">PowerBI</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Scikit-Learn</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <h3><i class="fa-solid fa-layer-group"></i> Domains</h3>
+                    <div class="tags-container">
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Predictive Modeling</span>
+                        <span class="tag">Statistical Analysis</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="section-title center">Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 (Crypto Analysis) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/crypto_analysis.jpg" alt="Crypto Currency Analysis">
+                        <div class="overlay">
+                            <a href="https://github.com/MADHACKER85/Crypto-currency-analysis-Power-BI.git"
+                                target="_blank" class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i>
+                                Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">PowerBI</span>
+                            <span class="tiny-tag">Data Analysis</span>
+                        </div>
+                        <h3>Crypto Currency Analysis</h3>
+                        <p>A dynamic Power BI report analyzing cryptocurrency market trends, visualizing price
+                            volatility, and comparing asset performance over time.</p>
+                    </div>
+                </article>
+
+                <!-- Project 2 (Data Analysis) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/customer_trends.jpg" alt="Customer Trends Analysis">
+                        <div class="overlay">
+                            <a href="https://github.com/MADHACKER85/Customer_trends_analysis" target="_blank"
+                                class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">Python</span>
+                            <span class="tiny-tag">PowerBI</span>
+                            <span class="tiny-tag">SQL</span>
+                        </div>
+                        <h3>Customer Trends Analysis</h3>
+                        <p>Analyzing customer behavior patterns to uncover actionable retention insights using advanced
+                            statistical methods.</p>
+                    </div>
+                </article>
+
+                <!-- Project 3 (BI Dashboard) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/adventure_works.jpg" alt="Adventure Works Dashboard">
+                        <div class="overlay">
+                            <a href="https://github.com/MADHACKER85/Advernture-Works-dashboard-Power-BI" target="_blank"
+                                class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">PowerBI</span>
+                            <span class="tiny-tag">SQL</span>
+                        </div>
+                        <h3>Adventure Works Dashboard</h3>
+                        <p>A comprehensive business intelligence dashboard tracking sales and operational metrics for a
+                            fictional cycle company.</p>
+                    </div>
+                </article>
+
+                <!-- Project 4 (Web Dev) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/cleanware.png" alt="Cleanware Website">
+                        <div class="overlay">
+                            <a href="https://cleanware.netlify.app/" target="_blank" class="btn btn-small">View Live</a>
+                            <a href="https://github.com/MADHACKER85/Cleanware.in_website.git" target="_blank"
+                                class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">TypeScript</span>
+                            <span class="tiny-tag">HTML/CSS</span>
+                        </div>
+                        <h3>Cleanware Website</h3>
+                        <p>A responsive, modern frontend built with TypeScript and HTML5 for a professional cleaning
+                            services platform.</p>
+                    </div>
+                </article>
+
+                <!-- Project 5 (ML - Stress Detection) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/stress_detection.jpg" alt="Stress Detection">
+                        <div class="overlay">
+                            <a href="https://github.com/MADHACKER85/stress-detection-using-ECG-signal.git"
+                                target="_blank" class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i>
+                                Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">Python</span>
+                            <span class="tiny-tag">ML</span>
+                        </div>
+                        <h3>Stress Detection via ECG</h3>
+                        <p>Leveraging ECG signals and Python-based machine learning models to accurately detect
+                            physiological stress levels.</p>
+                    </div>
+                </article>
+
+                <!-- Project 6 (Portfolio) -->
+                <article class="project-card glass-card">
+                    <div class="project-img-container">
+                        <img src="./assets/portfolio_v2.jpg" alt="This Portfolio">
+                        <div class="overlay">
+                            <a href="https://keerthivasan.tech" target="_blank" class="btn btn-small">View Live</a>
+                            <a href="https://github.com/MADHACKER85/My-Portfolio-V1.git" target="_blank"
+                                class="btn btn-small btn-dark"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tiny-tag">HTML5</span>
+                            <span class="tiny-tag">Glassmorphism</span>
+                        </div>
+                        <h3>My Portfolio V1</h3>
+                        <p>A dark-mode, animated personal showcase built with plain HTML, CSS, and Vanilla JavaScript.
+                            Fast & beautiful.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding footer-section">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <h2>Let's Work Together</h2>
+                <p>Have a project that needs a creative analyst or developer? Drop me a line.</p>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>kkvs5699@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Namakkal, Tamilnadu India</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/keerthivasank85/" target="_blank" class="social-icon"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/MADHACKER85" target="_blank" class="social-icon"><i
+                            class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <form class="contact-form glass-card">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+        </div>
+        <footer>
+            <p>&copy; 2024 Keerthivasan.</p>
+        </footer>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
