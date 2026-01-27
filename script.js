@@ -306,4 +306,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // --- Privacy Banner Logic ---
+    const privacyBanner = document.getElementById('privacy-banner');
+    const acceptBtn = document.getElementById('accept-btn');
+    const declineBtn = document.getElementById('decline-btn');
+
+    // Function to load GA4
+    const loadGA4 = () => {
+        const script = document.createElement('script');
+        script.async = true;
+        // Reverting to the requested ID: G-7HMCW1JD2V
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7HMCW1JD2V';
+        document.head.appendChild(script);
+
+        script.onload = () => {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-7HMCW1JD2V');
+        };
+    };
+
+    // Check for existing consent
+    const consent = localStorage.getItem('privacyConsent');
+
+    if (consent === 'accepted') {
+        loadGA4();
+    } else if (consent === 'declined') {
+        // Do nothing, respect choice
+    } else {
+        // No choice made yet, show banner
+        setTimeout(() => {
+            privacyBanner.classList.add('visible');
+        }, 1000); // Slight delay for better UX
+    }
+
+    // Handle Accept
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('privacyConsent', 'accepted');
+        privacyBanner.classList.remove('visible');
+        loadGA4();
+    });
+
+    // Handle Decline
+    declineBtn.addEventListener('click', () => {
+        localStorage.setItem('privacyConsent', 'declined');
+        privacyBanner.classList.remove('visible');
+    });
+
 });
