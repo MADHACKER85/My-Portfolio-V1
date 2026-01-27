@@ -306,53 +306,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     // --- Privacy Banner Logic ---
-    const privacyBanner = document.getElementById('privacy-banner');
-    const acceptBtn = document.getElementById('accept-btn');
-    const declineBtn = document.getElementById('decline-btn');
+    // REMOVED for Consent Mode v2
+    // --- Contact Form AJAX Handling ---
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
-    // Function to load GA4
-    const loadGA4 = () => {
-        const script = document.createElement('script');
-        script.async = true;
-        // Reverting to the requested ID: G-7HMCW1JD2V
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7HMCW1JD2V';
-        document.head.appendChild(script);
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
 
-        script.onload = () => {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-7HMCW1JD2V');
-        };
-    };
+            formStatus.textContent = "Sending...";
+            formStatus.className = "form-status"; // Reset classes
 
-    // Check for existing consent
-    const consent = localStorage.getItem('privacyConsent');
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
 
-    if (consent === 'accepted') {
-        loadGA4();
-    } else if (consent === 'declined') {
-        // Do nothing, respect choice
-    } else {
-        // No choice made yet, show banner
-        setTimeout(() => {
-            privacyBanner.classList.add('visible');
-        }, 1000); // Slight delay for better UX
+                if (response.ok) {
+                    formStatus.textContent = "Message sent successfully!";
+                    formStatus.classList.add('status-success');
+                    contactForm.reset();
+                } else {
+                    const result = await response.json();
+                    if (Object.hasOwn(result, 'errors')) {
+                        formStatus.textContent = result.errors.map(error => error["message"]).join(", ");
+                    } else {
+                        formStatus.textContent = "Oops! There was a problem submitting your form";
+                    }
+                    formStatus.classList.add('status-error');
+                }
+            } catch (error) {
+                formStatus.textContent = "Oops! There was a problem submitting your form";
+                formStatus.classList.add('status-error');
+            }
+        });
     }
-
-    // Handle Accept
-    acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('privacyConsent', 'accepted');
-        privacyBanner.classList.remove('visible');
-        loadGA4();
-    });
-
-    // Handle Decline
-    declineBtn.addEventListener('click', () => {
-        localStorage.setItem('privacyConsent', 'declined');
-        privacyBanner.classList.remove('visible');
-    });
 
 });

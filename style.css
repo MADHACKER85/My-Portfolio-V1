@@ -1201,61 +1201,19 @@ footer {
     }
 }
 
-/* Privacy Banner */
-.privacy-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    width: 90%;
-    max-width: 600px;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s ease-out;
-}
-
-.privacy-banner.visible {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) translateY(0);
-}
-
-.privacy-content {
-    background: rgba(15, 15, 25, 0.95);
-    /* Darker, less transparent for readability */
-    padding: 1.5rem;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border: 1px solid var(--accent-primary);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-}
-
-.privacy-content p {
-    color: var(--text-main);
-    font-size: 0.95rem;
-    line-height: 1.5;
+/* Form Status Message */
+.form-status {
+    margin-top: 1rem;
     text-align: center;
+    font-size: 0.95rem;
+    min-height: 1.5rem;
+    font-weight: 500;
 }
 
-.privacy-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.status-success {
+    color: var(--accent-success);
 }
 
-@media (min-width: 768px) {
-    .privacy-content {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-        justify-content: space-between;
-    }
-
-    .privacy-content p {
-        text-align: left;
-        margin-bottom: 0;
-    }
+.status-error {
+    color: #ff4757;
 }
