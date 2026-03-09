@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{TLCresume}[2021/12/11 Standard LaTeX package for my resume]
+
+% Helper packages
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{cmap}
+\RequirePackage{lmodern}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{graphicx}
+\RequirePackage{fontawesome5}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{array} % Required for bold column in tabular
+
+% Page layout
+\geometry{left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm, footskip=.5cm}
+
+% Font and paragraph settings
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.25}
+\setlength{\parindent}{0pt}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{18pt}{8pt}
+
+% Subsection formatting
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing{\subsection}{0pt}{8pt}{4pt}
+
+% Custom commands
+\newcommand{\subtext}[1]{\textit{#1}\par\vspace{3pt}}
+
+% Simplify list spacing
+\setlist[itemize]{leftmargin=*, align=parleft, labelsep=1em}
+
+\endinput

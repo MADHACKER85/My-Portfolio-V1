@@ -2,19 +2,7 @@
 <html lang="en">
 
 <head>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
 
-        // 2. Set Default Consent (Consent Mode v2)
-        // We set everything to 'denied' initially for privacy compliance
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied'
-        });
-    </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXGW27RP4P"></script>
     <script>
@@ -22,28 +10,7 @@
         gtag('config', 'G-BXGW27RP4P');
     </script>
 
-    <script>
-        function grantConsent() {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted',
-                'analytics_storage': 'granted'
-            });
-            // Hide the banner after user clicks accept
-            document.getElementById('custom-consent-banner').style.display = 'none';
-            localStorage.setItem('userConsent', 'true');
-        }
 
-        // Check if they already consented in a previous session
-        window.onload = function () {
-            if (localStorage.getItem('userConsent') === 'true') {
-                grantConsent();
-            } else {
-                document.getElementById('custom-consent-banner').style.display = 'block';
-            }
-        };
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vasan | Data Analyst & Visual Storyteller</title>
@@ -599,18 +566,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- Custom Consent Mode v2 Banner -->
-    <div id="custom-consent-banner"
-        style="display:none; position:fixed; bottom:20px; left:20px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:9999;">
-        <p style="margin:0 0 10px 0; font-family:sans-serif; color:#333;">We use cookies to improve your experience on
-            our
-            .tech site. Do you agree to our use of analytics?</p>
-        <button onclick="grantConsent()"
-            style="background:#00f2ff; color:#000; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">Accept
-            All</button>
-        <button onclick="this.parentElement.style.display='none'"
-            style="background:transparent; color:#666; border:none; padding:10px 20px; cursor:pointer;">Decline</button>
-    </div>
+
 
 </body>
 

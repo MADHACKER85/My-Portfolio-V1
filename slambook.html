@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slam Book | Keerthivasan</title>
+    <meta name="description" content="A private slam book for friends.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: var(--bg-color, #0a0a14);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #slambook-content {
+            display: none;
+            margin-top: 100px;
+        }
+
+        .password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .password-box {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .password-box h2 {
+            margin-bottom: 15px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .password-box p {
+            margin-bottom: 25px;
+            color: #a0aab2;
+        }
+
+        .slambook-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #slambook-password {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #slambook-password:focus {
+            border-color: #00f2ff;
+        }
+
+        .error-msg {
+            color: #ff4757;
+            margin-top: 15px;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .glass-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 20, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .contact-form .form-group,
+        .contact-form button {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .btn-full-width {
+            width: 100%;
+        }
+
+        .slambook-section {
+            padding-top: 4rem;
+        }
+
+        .slambook-footer {
+            margin-top: 50px;
+        }
+
+        .auth-notice {
+            font-size: 0.85rem;
+            color: #a0aab2;
+            margin-top: -15px;
+        }
+
+        .text-center-box {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">KEERTHIVASAN<span class="accent">.TECH</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Password Section -->
+    <div id="password-section" class="password-container">
+        <div class="password-box glass-card">
+            <h2><i class="fa-solid fa-lock"></i> Friends Only</h2>
+            <p>Enter today's date as the password to access.</p>
+            <p class="auth-notice">(I am the only person authorized to view
+                these messages. They go directly to my private email.)</p>
+            <div class="form-group">
+                <input type="password" id="slambook-password" placeholder="Password"
+                    onkeydown="if(event.key === 'Enter') checkPassword()">
+                <button onclick="checkPassword()" class="btn btn-primary btn-full-width">Unlock <i
+                        class="fa-solid fa-key"></i></button>
+            </div>
+            <p id="password-error" class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Incorrect password.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slam Book Content (Hidden by default) -->
+    <div id="slambook-content">
+        <section class="section-padding slambook-section">
+            <div class="container contact-wrapper-centered">
+                <div class="slambook-header">
+                    <h2 class="section-title center">My <span class="gradient-text">Slam Book</span></h2>
+                    <p>Leave a piece of your memory here! Answer whatever you feel like. ❤️</p>
+                </div>
+
+                <form id="slambook-form" class="contact-form glass-card" action="https://formspree.io/f/mlgbobnl"
+                    method="POST">
+                    <input type="hidden" name="_subject" value="New Slam Book Entry!">
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="What do I call you?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number</label>
+                        <input type="tel" id="contact-number" name="contact-number" placeholder="Your phone number"
+                            pattern="[\+]?[0-9\s\-\(\)]{7,15}"
+                            title="Please enter a valid phone number (e.g. +91 9876543210 or 9876543210)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="2" placeholder="Your current address"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="what-do-you-call-me">What do you call me?</label>
+                        <input type="text" id="what-do-you-call-me" name="what-do-you-call-me" placeholder="Nicknames?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="who-am-i">Who am I to you?</label>
+                        <input type="text" id="who-am-i" name="who-am-i" placeholder="Friend? Mentor? Nemesis?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="first-impression">First impression of me?</label>
+                        <input type="text" id="first-impression" name="first-impression" placeholder="Be honest!"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="when-where-meet">When & where did we meet and what do you remember of that
+                            day?</label>
+                        <textarea id="when-where-meet" name="when-where-meet" rows="3"
+                            placeholder="Take a trip down memory lane..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="secret-memories">Secret memories that we share?</label>
+                        <textarea id="secret-memories" name="secret-memories" rows="3"
+                            placeholder="Shhh... it's just between us." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feelings">What do you feel about me?</label>
+                        <textarea id="feelings" name="feelings" rows="3" placeholder="Be brutally honest..."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="never-told-me">Something you've never told me but want to share?</label>
+                        <textarea id="never-told-me" name="never-told-me" rows="3" placeholder="Now is the time..."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Write your message here... I'll be the only one reading this!"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Lock The Memory <i
+                            class="fa-solid fa-heart"></i></button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+            </div>
+        </section>
+
+        <footer class="advanced-footer slambook-footer">
+            <div class="container center text-center-box">
+                <p>Designed with <i class="fa-solid fa-heart pulse"></i> by Keerthivasan</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const pwd = document.getElementById('slambook-password').value.trim();
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+
+            // Accept dynamic date passwords like DDMMYYYY, DD-MM-YYYY, YYYY-MM-DD
+            const allowedPasswords = [
+                `${dd}${mm}${yyyy}`,
+                `${dd}-${mm}-${yyyy}`,
+                `${yyyy}-${mm}-${dd}`,
+                `${dd}/${mm}/${yyyy}`
+            ];
+
+            if (allowedPasswords.includes(pwd)) {
+                document.getElementById('password-section').style.display = 'none';
+                document.getElementById('slambook-content').style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+                // Shake animation
+                const box = document.querySelector('.password-box');
+                box.style.transform = 'translatex(-10px)';
+                setTimeout(() => box.style.transform = 'translatex(10px)', 100);
+                setTimeout(() => box.style.transform = 'translatex(-10px)', 200);
+                setTimeout(() => box.style.transform = 'translatex(10px)', 300);
+                setTimeout(() => box.style.transform = 'translatex(0)', 400);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Custom Cursor Logic ---
+            const cursorDot = document.querySelector('[data-cursor-dot]');
+            const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+            window.addEventListener('mousemove', function (e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                if (cursorDot) {
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                }
+
+                if (cursorOutline && typeof cursorOutline.animate === 'function') {
+                    cursorOutline.animate({
+                        left: `${posX}px`,
+                        top: `${posY}px`
+                    }, { duration: 500, fill: "forwards" });
+                }
+            });
+
+            // Hover effect for cursor
+            const hoverables = document.querySelectorAll('a, button, input, textarea');
+            hoverables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (cursorOutline) {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursorOutline.style.backgroundColor = 'rgba(0, 242, 255, 0.1)';
+                    }
+                });
+                el.addEventListener('mouseleave', () => {
+                    if (cursorOutline) {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                    }
+                });
+            });
+
+            // Contact Form AJAX Handling
+            const contactForm = document.getElementById('slambook-form');
+            const formStatus = document.getElementById('form-status');
+
+            if (contactForm && formStatus) {
+                contactForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData.entries());
+
+                    formStatus.textContent = "Sending...";
+                    formStatus.className = "form-status"; // Reset classes
+
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: contactForm.method,
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        if (response.ok) {
+                            formStatus.textContent = "Memory saved successfully! Thanks <3";
+                            formStatus.classList.add('status-success');
+                            contactForm.reset();
+                        } else {
+                            const result = await response.json();
+                            if (Object.hasOwn(result, 'errors')) {
+                                formStatus.textContent = result.errors.map(error => error["message"]).join(", ");
+                            } else {
+                                formStatus.textContent = "Oops! There was a problem submitting your entry";
+                            }
+                            formStatus.classList.add('status-error');
+                        }
+                    } catch (error) {
+                        formStatus.textContent = "Oops! There was a problem submitting your entry";
+                        formStatus.classList.add('status-error');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
